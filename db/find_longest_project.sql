@@ -1,4 +1,3 @@
 select id, datediff(m, start_date, finish_date) as project_time from project
-group by project_time
-order by project_time desc
-limit 1;
+where datediff(m, start_date, finish_date) =
+select (max(datediff(m, start_date, finish_date))) from project;
